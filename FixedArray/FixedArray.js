@@ -9,6 +9,7 @@ class FixedArray {
       }
 
       this.#arrayLength = size;
+
       for (let i = 0; i < this.#arrayLength; ++i) {
          this.#array[i] = undefined;
       }
@@ -26,6 +27,7 @@ class FixedArray {
       if (this.#insertionPointIndex <= 0) {
          throw new Error('배열이 비었습니다.');
       }
+
       const item = this.#array[this.#insertionPointIndex - 1];
       --this.#insertionPointIndex;
       return item;
@@ -37,6 +39,7 @@ class FixedArray {
 
    stringify() {
       let string = '';
+
       string += '[';
       for (let i = 0; i < this.#insertionPointIndex; ++i) {
          string += this.#array[i];
