@@ -1,7 +1,7 @@
 class FixedArray {
    #array = [];
    #arrayLength = 0;
-   #currentIndex = 0;
+   #insertionPointIndex = 0;
 
    constructor(size) {
       if (size < 0) {
@@ -15,27 +15,32 @@ class FixedArray {
    }
 
    push(item) {
-      if (this.#currentIndex + 1 >= this.#arrayLength) {
+      if (this.#insertionPointIndex >= this.#arrayLength) {
          throw new Error('배열이 꽉 찼습니다.');
       }
+      this.#array[this.#insertionPointIndex] = item;
+      ++this.#insertionPointIndex;
    }
 
    pop() {
-      if (this.#currentIndex <= 0) {
+      if (this.#insertionPointIndex <= 0) {
          throw new Error('배열이 비었습니다.');
       }
+      const item = this.#array[this.#insertionPointIndex - 1];
+      --this.#insertionPointIndex;
+      return item;
    }
 
    arrayLength() {
-      return this.#currentIndex + 1;
+      return this.#insertionPointIndex;
    }
 
    stringify() {
       let string = '';
       string += '[';
-      for (let i = 0; i <= this.#currentIndex; ++i) {
+      for (let i = 0; i < this.#insertionPointIndex; ++i) {
          string += this.#array[i];
-         if (i !== this.#currentIndex) {
+         if (i !== this.#insertionPointIndex - 1) {
             string += ', ';
          }
       }
