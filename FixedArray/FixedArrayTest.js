@@ -1,8 +1,7 @@
 const FixedArray = require('./FixedArray');
-const FixedArrayV2 = require('./FixedArrayV2');
 
 const ARRAY_LENGTH = 10;
-const fixedArray = new FixedArrayV2(ARRAY_LENGTH);
+const fixedArray = new FixedArray(ARRAY_LENGTH);
 
 fixedArray.push(10);
 fixedArray.push(20);
