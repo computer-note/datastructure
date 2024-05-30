@@ -36,3 +36,4 @@ console.log(fixedArrayV2.filter(elem => elem % 3 === 0).stringify());
 
 console.log('[[reduce test]]');
 console.log(fixedArrayV2.reduce((prev, cur) => prev + cur));
+console.log(fixedArrayV2.reduce((prev, cur) => prev + cur, 250));

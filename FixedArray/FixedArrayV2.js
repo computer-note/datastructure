@@ -106,7 +106,7 @@ class FixedArrayV2 extends FixedArray {
       const length = this.getLength();
       for (let i = startIndex; i < length; ++i) {
          const current = this.at(i);
-         accumulator = callback(accumulator, current);
+         accumulator = callback(accumulator, current, i);
       }
 
       return accumulator;
